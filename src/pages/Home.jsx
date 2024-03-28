@@ -22,9 +22,7 @@ const Home = () => {
     <span>loading</span>
   ) : (
     <>
-      <div className="home-img">
-        <h1>Page d'accueil</h1>
-      </div>
+      <div className="home-img"></div>
 
       <div className="home-card">
         {data.offers.map((elem) => {
@@ -32,7 +30,12 @@ const Home = () => {
             <Link key={elem._id} to={`/offer/${elem.id}`}>
               <article className="container owner">
                 <div className="test">
-                  <img src={elem.owner.account.avatar.secure_url} alt="photo" />
+                  {elem.owner.account.avatar && (
+                    <img
+                      src={elem.owner.account.avatar.secure_url}
+                      alt="logo-owner"
+                    />
+                  )}
                   <span className="username">
                     {elem.owner.account.username}
                   </span>
