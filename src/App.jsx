@@ -1,18 +1,24 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 
 import Header from "./components/Header";
 
-import axios from "axios";
-
 function App() {
-  const [search, setSearch] = useState("");
-
-  return <></>;
+  return (
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/offer/:id" element={<Offer />} />
+          <Route path="*" element={<p>Error 404</p>} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
 export default App;

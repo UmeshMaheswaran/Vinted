@@ -1,8 +1,10 @@
-#root {
-  max-width: 1920px;
+.container {
+  /* max-width: 1920px; */
+  width: 1280px;
   margin: 0 auto;
-  padding: 1rem;
-  /* border: solid aqua 2px; */
+  /* padding: 1rem; */
+
+  border: solid aqua 2px;
 }
 
 div img {
@@ -65,4 +67,18 @@ div img {
   background-color: #2cb1ba;
   border: none;
   border-radius: 5px;
+}
+
+.home-img {
+  background-image: url(src/assets/imgs/lol.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 455px;
+
+  width: 100%;
+}
+.test {
+  display: flex;
+  flex-wrap: wrap;
+  border: solid blue 2px;
 }

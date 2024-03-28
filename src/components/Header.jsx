@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 const Header = () => {
+  const [search, setSearch] = useState("");
   return (
-    <div id="root">
+    <div className="container">
       <div className="header-container">
         <div>
           <img
