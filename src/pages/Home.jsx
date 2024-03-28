@@ -43,9 +43,13 @@ const Home = () => {
                 </div>
                 <div className="caroussel">
                   <img src={elem.product_image.secure_url} alt="picture" />
-                  <p>{elem.product_price} €</p>
-                  <p>{elem.product_details[0].MARQUE}</p>
-                  <p>{elem.product_details[1].TAILLE}</p>
+                  <span className="pricehome">
+                    <p>{elem.product_price} €</p>
+                  </span>
+                  <li className="details">
+                    <p>{elem.product_details[0].MARQUE}</p>
+                    <p>{elem.product_details[1].TAILLE}</p>
+                  </li>
                 </div>
               </article>
             </Link>
