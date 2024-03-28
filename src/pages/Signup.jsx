@@ -12,7 +12,8 @@ const Signup = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h1>S'inscrire</h1>
+        <h1 className="titre">S'inscrire</h1>
+        <p className="ndc"></p>
         <input
           value={username}
           type="text"
@@ -22,6 +23,7 @@ const Signup = () => {
             setUsername(event.target.value);
           }}
         />
+        <p className="mail"></p>
         <input
           value={email}
           type="email"
@@ -31,6 +33,7 @@ const Signup = () => {
             setEmail(event.target.value);
           }}
         />
+        <p className="mdp"></p>
         <input
           value={password}
           type="password"
@@ -40,6 +43,9 @@ const Signup = () => {
             setPassword(event.target.value);
           }}
         />
+        <p className="clic">
+          <input type="submit" value="S'inscrire" />
+        </p>
       </form>
     </>
   );

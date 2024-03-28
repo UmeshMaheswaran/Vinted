@@ -165,3 +165,25 @@ li {
   justify-content: space-between;
   padding: 2px 0;
 }
+
+/* CSS pour Signup */
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titre {
+  font-size: 25px;
+}
+.ndc {
+  height: 30px;
+}
+input {
+  height: 30px;
+  border: none;
+}
+.clic {
+  margin-top: 20px;
+}
