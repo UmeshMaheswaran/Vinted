@@ -31,7 +31,7 @@ const Header = () => {
           <button className="inscription" onClick={() => navigate("/signup")}>
             S'inscrire
           </button>
-          <button className="connect" onClick={() => {}}>
+          <button className="connect" onClick={() => navigate("/login")}>
             Se connecter
           </button>
         </div>
