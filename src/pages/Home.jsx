@@ -26,8 +26,9 @@ const Home = () => {
 
       <div className="home-card">
         {data.offers.map((elem) => {
+          // console.log(elem);
           return (
-            <Link key={elem._id} to={`/offer/${elem.id}`}>
+            <Link key={elem._id} to={`/offer/${elem._id}`}>
               <article className="container owner">
                 <div className="test">
                   {elem.owner.account.avatar && (
