@@ -27,7 +27,7 @@ const Offer = () => {
   return isloading ? (
     <p>Loading...</p>
   ) : (
-    <main>
+    <main className="offer-container">
       <img src={data.product_image.secure_url} alt="picturep2" />
       <div className="offer-infos">
         <p className="prix">{data.product_price} €</p>
@@ -44,6 +44,12 @@ const Offer = () => {
             );
           })}
         </li>
+        <span className="offer-titre">{data.product_name}</span>
+        <span className="offer-description">{data.product_description}</span>
+        <div className="offer-account">
+          <img src={data.owner.account.avatar?.secure_url} />
+          <span className="surnom-infos">{data.owner.account.username}</span>
+        </div>
       </div>
     </main>
   );

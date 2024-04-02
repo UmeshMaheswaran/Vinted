@@ -1,18 +1,17 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Header = () => {
-  const [search, setSearch] = useState("");
-  const navigate = useNavigate();
+const Header = ({ token, search, setSearch, handleToken }) => {
   return (
     <div className="container">
       <div className="header-container">
         <div>
-          <img
-            className="logovin"
-            src="/src/assets/imgs/logovin.svg"
-            alt="vinted"
-          />
+          <Link to="/">
+            <img
+              className="logovin"
+              src="/src/assets/imgs/logovin.svg"
+              alt="vinted"
+            />
+          </Link>
         </div>
 
         <div>
@@ -26,28 +25,43 @@ const Header = () => {
             }}
           />
         </div>
-
-        <div className="twobutton">
-          <button className="inscription" onClick={() => navigate("/signup")}>
-            S'inscrire
-          </button>
-          <button className="connect" onClick={() => navigate("/login")}>
-            Se connecter
-          </button>
-        </div>
-        <div>
+        {token ? (
           <button
-            className="button3"
-            type="button"
-            onClick={() => navigate("/publish")}
+            className="disconnect"
+            onClick={() => {
+              handleToken(null);
+            }}
           >
-            Vends tes articles
+            Se déconnecter
           </button>
-        </div>
+        ) : (
+          <>
+            <div className="twobutton">
+              <Link to="/signup">
+                <button className="inscription">S'inscrire</button>
+              </Link>
+              <Link to="/login">
+                <button className="connect">Se connecter</button>
+              </Link>
+            </div>
+
+            <div>
+              <Link to={token ? "/publish" : "/login"}>
+                <button className="button3" type="button">
+                  Vends tes articles
+                </button>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
-      <div className="body"></div>
     </div>
   );
 };
 
 export default Header;
+
+<div className="home-carre">
+  "Prêts à faire du tri dans vos placard ?"
+  <button>Commencer à vendre</button>
+</div>;

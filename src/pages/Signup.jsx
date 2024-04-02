@@ -29,7 +29,7 @@ const Signup = ({ handleToken }) => {
       handleToken(response.data.token);
       navigate("/");
     } catch (error) {
-      // console.log(error.response.data);
+      console.log(error);
 
       if (error.response.status === 409) {
         setErrorMessage(
