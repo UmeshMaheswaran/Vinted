@@ -36,7 +36,11 @@ const Header = () => {
           </button>
         </div>
         <div>
-          <button className="button3" type="button" onClick={() => {}}>
+          <button
+            className="button3"
+            type="button"
+            onClick={() => navigate("/publish")}
+          >
             Vends tes articles
           </button>
         </div>

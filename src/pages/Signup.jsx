@@ -1,18 +1,50 @@
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Signup = () => {
+const Signup = ({ handleToken }) => {
+  const [errorMessage, setErrorMessage] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [newsLetter, setNewsLetter] = useState(false);
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+      setErrorMessage("");
+
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        {
+          email: email,
+          username: username,
+          password: password,
+          newsletter: newsLetter,
+        }
+      );
+      console.log(response.data);
+      handleToken(response.data.token);
+      navigate("/");
+    } catch (error) {
+      console.log(error.response.data);
+
+      if (error.response.data === 409) {
+        setErrorMessage(
+          "This email already has an account, please use another one"
+        );
+      } else if (error.ressponse.data.message === "Missing parameters") {
+        setErrorMessage("Please fill in all the fields");
+      }
+    }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h1 className="titre">S'inscrire</h1>
+    <main className="signuppage">
+      <h1>S'inscrire</h1>
+      <form className="signupform" onSubmit={handleSubmit}>
         <p className="ndc"></p>
         <input
           value={username}
@@ -43,12 +75,29 @@ const Signup = () => {
             setPassword(event.target.value);
           }}
         />
+        <div className="checkboxform">
+          <input
+            checked={newsLetter}
+            type="checkbox"
+            onChange={() => {
+              setNewsLetter(!newsLetter);
+            }}
+          />
+          <span>S'inscrire à notre newsletter</span>
+        </div>
+        <p className="sousphrase">
+          En m'inscrivant je confirme avoir lu et accepté les Termes &
+          Conditions et Politques de Confidentialité de Vinted. Je confirme
+          avoir au moins 18 ans
+        </p>
+
         <p className="clic">
-          <input type="submit" value="S'inscrire" />
+          <button type="submit">S'inscrire</button>
+          {errorMessage && <p style={{ color: "red" }}> {errorMessage} </p>}
         </p>
       </form>
-    </>
+      <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+    </main>
   );
 };
-
 export default Signup;

@@ -38,7 +38,7 @@ const Offer = () => {
             const keyName = keys[0];
 
             return (
-              <p key={keyName}>
+              <p className="detailss" key={keyName}>
                 {keyName} {elem[keyName]}
               </p>
             );
