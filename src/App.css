@@ -176,11 +176,12 @@ span {
   font-size: 12px;
   height: 28px;
   width: 113px;
-  background-color: #2cb1ba;
+  background-color: #c2175b;
   border: 1px solid white;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 /* Offer */

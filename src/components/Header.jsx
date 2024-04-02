@@ -44,24 +44,18 @@ const Header = ({ token, search, setSearch, handleToken }) => {
                 <button className="connect">Se connecter</button>
               </Link>
             </div>
-
-            <div>
-              <Link to={token ? "/publish" : "/login"}>
-                <button className="button3" type="button">
-                  Vends tes articles
-                </button>
-              </Link>
-            </div>
           </>
         )}
+        <div>
+          <Link to={token ? "/publish" : "/login"}>
+            <button className="button3" type="button">
+              Vends tes articles
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Header;
-
-<div className="home-carre">
-  "Prêts à faire du tri dans vos placard ?"
-  <button>Commencer à vendre</button>
-</div>;
