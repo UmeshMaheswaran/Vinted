@@ -29,13 +29,13 @@ const Signup = ({ handleToken }) => {
       handleToken(response.data.token);
       navigate("/");
     } catch (error) {
-      console.log(error.response.data);
+      // console.log(error.response.data);
 
-      if (error.response.data === 409) {
+      if (error.response.status === 409) {
         setErrorMessage(
           "This email already has an account, please use another one"
         );
-      } else if (error.ressponse.data.message === "Missing parameters") {
+      } else if (error.response.data.message === "Missing parameters") {
         setErrorMessage("Please fill in all the fields");
       }
     }
@@ -88,13 +88,13 @@ const Signup = ({ handleToken }) => {
         <p className="sousphrase">
           En m'inscrivant je confirme avoir lu et accepté les Termes &
           Conditions et Politques de Confidentialité de Vinted. Je confirme
-          avoir au moins 18 ans
+          avoir au moins 18 ans.
         </p>
 
-        <p className="clic">
+        <div className="clic">
           <button type="submit">S'inscrire</button>
           {errorMessage && <p style={{ color: "red" }}> {errorMessage} </p>}
-        </p>
+        </div>
       </form>
       <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
     </main>

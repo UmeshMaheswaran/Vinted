@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 // import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
+
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,9 +52,11 @@ const Login = ({ handleToken }) => {
             }}
           />
         </div>
-        <p className="log-button">
-          <button type="submit">Se Connecter</button>
-        </p>
+        <div>
+          <button className="login-button" type="submit">
+            Se Connecter
+          </button>
+        </div>
         <h2 className="log-link">
           <Link to="/signup">Pas encore de compte ? Incrit-toi !</Link>
         </h2>
