@@ -51,7 +51,7 @@ const Publish = ({ token }) => {
   return token ? (
     <main>
       <h1>Je suis la page Publish</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="publishmain" onSubmit={handleSubmit}>
         {picture && <img src={URL.createObjectURL(picture)} alt="produit" />}
         <label htmlFor="picture-input">+ Ajoute une photo</label>
         <input
